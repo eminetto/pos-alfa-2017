@@ -24,6 +24,7 @@ return [
             // Fully\Qualified\InterfaceName::class => Fully\Qualified\ClassName::class,
             Helper\ServerUrlHelper::class => Helper\ServerUrlHelper::class,
             App\Model\Beer::class => App\Model\Beer::class,
+            App\Middleware\Format\Json::class => App\Middleware\Format\Json::class,
         ],
         // Use 'factories' for services provided by callbacks/factory classes.
         'factories'  => [
@@ -41,6 +42,7 @@ return [
             App\Action\Beer\Update::class => App\Factory\Action\Beer::class,
             App\Action\Beer\Create::class => App\Factory\Action\Beer::class,
             App\Action\Beer\Delete::class => App\Factory\Action\Beer::class,
+            App\Middleware\Format\Html::class => App\Factory\Middleware\Format\Html::class
         ],
     ],
 ];
