@@ -36,7 +36,11 @@ return [
             Zend\Stratigility\Middleware\ErrorHandler::class => Container\ErrorHandlerFactory::class,
             Middleware\ErrorResponseGenerator::class         => Container\ErrorResponseGeneratorFactory::class,
             Middleware\NotFoundHandler::class                => Container\NotFoundHandlerFactory::class,
-            App\Factory\Db\Adapter\Adapter::class => App\Factory\Db\Adapter\Adapter::class
+            App\Factory\Db\Adapter\Adapter::class => App\Factory\Db\Adapter\Adapter::class,
+            App\Action\Beer\Index::class => App\Factory\Action\Beer::class,
+            App\Action\Beer\Update::class => App\Factory\Action\Beer::class,
+            App\Action\Beer\Create::class => App\Factory\Action\Beer::class,
+            App\Action\Beer\Delete::class => App\Factory\Action\Beer::class,
         ],
     ],
 ];
