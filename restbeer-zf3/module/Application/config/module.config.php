@@ -34,11 +34,31 @@ return [
                     ],
                 ],
             ],
+            'beer' => [
+                'type'    => Segment::class,
+                'options' => [
+                    'route'    => '/beer[/][:action][/:id]',
+                    'constraints' => [
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id'     => '[0-9]+',
+                    ],
+                    'defaults' => [
+                        'controller' => Controller\BeerController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
         ],
     ],
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\BeerController::class => function(\Interop\Container\ContainerInterface $container, $requestedName) {
+                $tableGateway = $container->get('Application\Model\BeerTableGateway');
+                $controller = new Controller\BeerController($tableGateway);
+
+                return $controller;
+            },
         ],
     ],
     'view_manager' => [
