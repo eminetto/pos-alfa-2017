@@ -12,5 +12,17 @@
  */
 
 return [
-    // ...
+    'service_manager' => [
+        'factories' => [
+            Application\Model\BeerTableGateway::class =>  Application\Factory\BeerTableGateway::class,
+            Application\Factory\DbAdapter::class => Application\Factory\DbAdapter::class,
+        ],
+        'alias' => [
+            'DB' => Application\Factory\DbAdapter::class,
+        ],
+    ],
+    'db' => [
+        'driver' => 'Pdo_Sqlite',
+        'database' => 'data/beers.db',
+    ],
 ];
